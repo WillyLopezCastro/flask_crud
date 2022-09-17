@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>READ (ONE)</title>
+</head>
+<body>
+    <div class="container bootstrap snippets bootdey">
+        <div class="panel-body inf-content">
+            <div class="row">
+                <div class="col-md-4">
+                    <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="https://bootdey.com/img/Content/avatar/avatar7.png" data-original-title="Usuario"> 
+                    <ul title="Ratings" class="list-inline ratings text-center">
+                        <li><a href="/users"><span class="glyphicon glyphicon-star"></span>Home</a></li>
+                        <li><a href="/users/{{ user.id }}/edit"><span class="glyphicon glyphicon-star"></span>Edit</a></li>
+                        <li><a href="/users/{{ user.id }}/delete"><span class="glyphicon glyphicon-star"></span>Delete</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <strong>Information User {{user.id}}</strong><br>
+                    <div class="table-responsive">
+                        <table class="table table-user-information">
+                            <tbody>
+                                <tr>    
+                                    <td>
+                                        <strong>
+                                            <span class="glyphicon glyphicon-user  text-primary"></span>    
+                                            Full Name:                                                
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        {{user.first_name}} {{user.last_name}}     
+                                    </td>
+                                </tr>
+                            
+                                <tr>        
+                                    <td>
+                                        <strong>
+                                            <span class="glyphicon glyphicon-envelope text-primary"></span> 
+                                            Email:                                                
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        {{user.email}}
+                                    </td>
+                                </tr>
+                            
+                                <tr>        
+                                    <td>
+                                        <strong>
+                                            <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                            Created On:                                                
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        {{user.created_at}}
+                                    </td>
+                                </tr>
+                            
+                                <tr>        
+                                    <td>
+                                        <strong>
+                                            <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                            Last Updated On:                                                
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        {{user.updated_at}}
+                                    </td>
+                                </tr>                                    
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

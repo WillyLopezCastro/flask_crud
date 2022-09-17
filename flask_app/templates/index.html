@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>READ ALL</title>
+</head>
+<body>
+    <div class="flex justify-center col-6 mx-auto text-center">
+        <form action="/users" class="text-center p-12 rounded" method="post">
+        <h2>All Users</h2>            
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Created At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for one_friend in friends %}
+                            <tr>
+                                <td>{{ one_friend.id }}</td>
+                                <td>{{ one_friend.first_name }} {{ one_friend.last_name }}</td>
+                                <td>{{ one_friend.email }}</td>
+                                <td>{{ one_friend.created_at }}</td>
+                                <td>
+                                    <a href="/users/{{ one_friend.id }}">Show </a> |
+                                    <a href="/users/{{ one_friend.id }}/edit">Edit </a> |
+                                    <a href="/users/{{ one_friend.id }}/delete">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <a href="/users/new">Add a New User</a>
+        </form>
+    </div>
+</body>
+</html>
